@@ -36,7 +36,7 @@
 	<groupId>com.globalvelocity.netty</groupId>
 	<artifactId>netty-icap</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.0.2-1-SNAPSHOT</version>
+	<version>1.0.2-1</version>
 	<name>Global Velocity :: Product :: Source :: Netty-ICAP</name>
 	<url>http://icap.mimo.ch/</url>
 	<description>ICAP Codec implementation for Netty</description>
