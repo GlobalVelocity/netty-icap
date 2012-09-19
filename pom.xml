@@ -12,50 +12,51 @@
     License for the specific language governing permissions and limitations
     under the License.
  -->
- <!--
- 	Snapshot:
- 	$> mvn clean deploy
- 	
- 	Stage:
- 	$> mvn -DperformRelease=true release:clean release:prepare 
- 	$> mvn -DperformRelease=true release:perform
- 	
- 	Release:
- 	Login to: https://oss.sonatype.org
- 	
- 	Follow the guide: https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide
-  -->
-  <!-- 
-  	Author: Michael Mimo Moratti (mimo@mimo.ch)
-   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<!--
+   Snapshot:
+   $> mvn clean deploy
+
+   Stage:
+   $> mvn -DperformRelease=true release:clean release:prepare
+   $> mvn -DperformRelease=true release:perform
+
+   Release:
+   Login to: https://oss.sonatype.org
+
+   Follow the guide: https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide
+-->
+<!--
+   Author: Michael Mimo Moratti (mimo@mimo.ch)
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
 
-	<groupId>com.globalvelocity.netty</groupId>
-	<artifactId>netty-icap</artifactId>
-	<packaging>bundle</packaging>
-	<version>1.0.2-1</version>
-	<name>Global Velocity :: Product :: Source :: Netty-ICAP</name>
-	<url>http://icap.mimo.ch/</url>
-	<description>ICAP Codec implementation for Netty</description>
+    <groupId>com.globalvelocity.netty</groupId>
+    <artifactId>netty-icap</artifactId>
+    <packaging>bundle</packaging>
+    <version>1.0.2-2</version>
+    <name>Global Velocity :: Product :: Source :: Netty-ICAP</name>
+    <url>http://icap.mimo.ch/</url>
+    <description>ICAP Codec implementation for Netty</description>
 
 
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
-		</license>
-	</licenses>
-	<inceptionYear>2011</inceptionYear>
-	<developers>
-		<developer>
-			<id>mimo</id>
-			<name>Michael Mimo Moratti</name>
-			<email>mimo@mimo.ch</email>
-		</developer>
-	</developers>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <inceptionYear>2011</inceptionYear>
+    <developers>
+        <developer>
+            <id>mimo</id>
+            <name>Michael Mimo Moratti</name>
+            <email>mimo@mimo.ch</email>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,7 +68,7 @@
         <maven.bundle.plugin.version>2.3.7</maven.bundle.plugin.version>
     </properties>
 
-	<dependencies>
+    <dependencies>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty</artifactId>
@@ -83,93 +84,117 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
-	</dependencies>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.4.3</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-				<executions>
-					<execution>
-						<id>copy-legal-info</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/license/META-INF</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}</directory>
-									<filtering>false</filtering>
-									<includes>
-										<include>COPYRIGHT.txt</include>
-										<include>LICENSE.txt</include>
-										<include>NOTICE.txt</include>
-										<include>license/*.txt</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>1.6</source>
-					<target>1.6</target>
-					<debug>true</debug>
-					<optimize>true</optimize>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<forkMode>never</forkMode>
-					<excludes>
-						<exclude>**/Abstract*</exclude>
-						<exclude>**/TestUtil*</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-legal-info</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/license/META-INF</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}</directory>
+                                    <filtering>false</filtering>
+                                    <includes>
+                                        <include>COPYRIGHT.txt</include>
+                                        <include>LICENSE.txt</include>
+                                        <include>NOTICE.txt</include>
+                                        <include>license/*.txt</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <debug>true</debug>
+                    <optimize>true</optimize>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <forkMode>never</forkMode>
+                    <excludes>
+                        <exclude>**/Abstract*</exclude>
+                        <exclude>**/TestUtil*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
                 <version>${maven.bundle.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
-						<Bundle-DocURL>${project.url}</Bundle-DocURL>
-						<Bundle-Activator>
-							ch.mimo.netty.icap.container.osgi.NettyIcapBundleActivator
-		            </Bundle-Activator>
-						<Export-Package>
-							!ch.mimo.netty.example.*,
-							ch.mimo.netty.*;version=${project.version}
-		            </Export-Package>
-						<Private-Package>
-							ch.mimo.netty.example.*,
-		            </Private-Package>
-						<Import-Package>
-							*;resolution:=optional
-		            </Import-Package>
-						<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-						<Bundle-BuddyPolicy>registered</Bundle-BuddyPolicy>
-						<Main-Class>ch.mimo.netty.handler.codec.icap.Version</Main-Class>
-					</instructions>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
+                        <Bundle-DocURL>${project.url}</Bundle-DocURL>
+                        <Bundle-Activator>
+                            ch.mimo.netty.icap.container.osgi.NettyIcapBundleActivator
+                        </Bundle-Activator>
+                        <Export-Package>
+                            !ch.mimo.netty.example.*,
+                            ch.mimo.netty.*;version=${project.version}
+                        </Export-Package>
+                        <Private-Package>
+                            ch.mimo.netty.example.*,
+                        </Private-Package>
+                        <Import-Package>
+                            *;resolution:=optional
+                        </Import-Package>
+                        <Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+                        <Bundle-BuddyPolicy>registered</Bundle-BuddyPolicy>
+                        <Main-Class>ch.mimo.netty.handler.codec.icap.Version</Main-Class>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>package-sources</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2</version>
+                        <executions>
+                            <execution>
+                                <id>package-sources</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
 
